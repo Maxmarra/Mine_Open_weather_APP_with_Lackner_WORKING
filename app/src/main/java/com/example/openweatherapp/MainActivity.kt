@@ -55,7 +55,8 @@ class MainActivity : ComponentActivity() {
                     ) {
                         WeatherCard(
                             currentWeatherState = viewModel.currentState,
-                            backgroundColor = DeepBlue)
+                            backgroundColor = DeepBlue
+                        )
 //                        Spacer(modifier = Modifier.height(150.dp))
 //                        WeatherCard(state = viewModel.state)
                     }

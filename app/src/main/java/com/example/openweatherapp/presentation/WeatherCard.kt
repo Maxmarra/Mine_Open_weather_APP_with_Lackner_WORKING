@@ -1,18 +1,18 @@
 package com.example.openweatherapp.presentation
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import coil.compose.SubcomposeAsyncImage
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 @Composable
@@ -35,13 +35,35 @@ fun WeatherCard(
             ) {
                 Text(
                     text = "Сегодня ${
-                        SimpleDateFormat("E MMM d y", Locale.getDefault()).format(
-                            Date(it.dateTimeUnix * 1000)
+                        SimpleDateFormat("E MMM d y", Locale.getDefault())
+                            .format( Date(it.dateTimeUnix * 1000)
                         )                      
                     }",
                     modifier = Modifier.align(Alignment.End),
                     color = Color.White
                 )
+
+                //Text(text = it.weatherDescriptionCurrent)
+               //Spacer(modifier = Modifier.height(16.dp))
+
+//                SubcomposeAsyncImage(
+//                    model = "http://openweathermap.org/img/wn/${it.weatherIcon}@2x.png",
+//                    loading = {
+//                        CircularProgressIndicator()
+//                    },
+//                    contentDescription = null,
+//                    contentScale = ContentScale.Crop,
+//                )
+
+//
+//                AsyncImage(
+//                    model = ImageRequest.Builder(LocalContext.current)
+//                        .data("http://openweathermap.org/img/wn/${it.weatherIcon}@2x.png")
+//                        .crossfade(true)
+//                        .build(),
+//                    contentDescription = null,
+//                    modifier = Modifier.width(200.dp).height(100.dp)
+//                )
             }
         }
     }

@@ -30,7 +30,7 @@ fun ContainerCurrentWeather.toWeatherDataCurrent(): WeatherDataCurrent{
 
         visibility = visibility,
 
-        type = WeatherType.fromWMO(weather[0].id),
+        //type = WeatherType.fromWMO(weather[0].id),
 
         weatherDescGroup = weather[0].main,
         weatherDescriptionCurrent = weather[0].description,

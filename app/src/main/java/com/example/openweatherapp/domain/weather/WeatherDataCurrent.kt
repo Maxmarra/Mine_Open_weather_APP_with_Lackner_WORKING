@@ -6,7 +6,7 @@ data class WeatherDataCurrent(
 
     val visibility: Int,
 
-    val type: WeatherType,
+    //val type: WeatherType,
 
     val weatherDescGroup: String,
     val weatherDescriptionCurrent: String,
