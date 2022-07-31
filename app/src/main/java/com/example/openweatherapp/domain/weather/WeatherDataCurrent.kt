@@ -1,6 +1,7 @@
 package com.example.openweatherapp.domain.weather
 
 data class WeatherDataCurrent(
+
     val lon: Double,
     val lat: Double,
 
@@ -12,12 +13,12 @@ data class WeatherDataCurrent(
     val weatherDescriptionCurrent: String,
     val weatherIcon: String,
 
-    val temperatureCurrent: Double,
-    val feelsLike: Double,
+    val temperatureCurrent: Int,
+    val feelsLike: Int,
     val pressure: Int,
     val humidity: Int,
 
-    val windSpeed: Double,
+    val windSpeed: Int,
 
     val dateTimeUnix: Long,
 

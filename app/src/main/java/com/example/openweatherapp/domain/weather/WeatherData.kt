@@ -1,17 +1,15 @@
 package com.example.openweatherapp.domain.weather
 
+import java.time.LocalDateTime
+
 //Это чистый собранный из кусочков JSONa класс
 // из WeatherDto.kt
 // здесь собрана вся нужная инфа из джейсона
 data class WeatherData (
-    //val time: Long,
-    val temperature: Double,
-    //val feelsLike: Double,
-    //val weather: List<Weather>,
-    val weatherDescription: String,
-    //val speed: Double
-    //val dtTxt: String
-    val dateTime:Long,
-    val type: WeatherType
-
+    val temperatureF: Int,
+    val humidityF: Int,
+    val descriptionF: String,
+    val iconF: String,
+    val speedF: Int,
+    val dateTimeUnixF: Long,
 )

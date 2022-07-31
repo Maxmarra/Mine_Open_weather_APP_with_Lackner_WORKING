@@ -1,58 +1,17 @@
 package com.example.openweatherapp.data.remote
 
-import com.squareup.moshi.Json
-
-data class Container(
-//    @field:Json(name = "cod")
-//    val cod: String,
-
-    @field:Json(name = "list")
-    val list: List<DataList>,
-
-//    @field:Json(name = "cnt")
-//    val cnt: Int
-
-)
+data class Container(val list: List<DataList>)
 data class DataList(
-    @field:Json(name = "dt")
     val dt: Long,
-
-    @field:Json(name = "main")
     val main: Main,
-
-    @field:Json(name = "weather")
     val weather: List<Weather>,
-
-//        @field:Json(name = "wind")
-//        val wind: Wind
-    @field:Json(name = "dt_txt")
-    val dt_txt: String,
-
+    val wind: Wind,
+    //val dt_txt: String
     )
-data class Main(
-    @field:Json(name = "temp")
-    val temp: Double,
 
-//                @field:Json(name = "feels_like")
-//                val feels_like: Double
-)
-
-data class Weather(
-    @field:Json(name = "id")
-    val id: Int,
-
-    @field:Json(name = "description")
-    val description: String
-)
-//
-//            data class Wind(
-//                @field:Json(name = "speed")
-//                val speed: Double
-//            )
-
-
-
-
+data class Main(val temp: Double, val humidity: Int)
+data class Weather(val description: String, val icon: String,)
+data class Wind(val speed: Double)
 
 val json = """ 
 
