@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.openweatherapp.presentation.state.WeatherState
 
 @Composable
 fun WeatherForecast(
@@ -18,7 +19,7 @@ fun WeatherForecast(
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = 3.dp)
         ) {
             LazyRow(content = {
                 items(data){
@@ -26,7 +27,7 @@ fun WeatherForecast(
                         weatherData = it,
                         modifier = Modifier
                         .height(150.dp)
-                        .padding(horizontal = 16.dp))
+                        .padding(horizontal = 3.dp))
 
                 }
             })

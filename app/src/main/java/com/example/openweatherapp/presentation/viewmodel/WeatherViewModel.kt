@@ -1,4 +1,4 @@
-package com.example.openweatherapp.presentation
+package com.example.openweatherapp.presentation.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -9,6 +9,8 @@ import com.example.openweatherapp.data.remote.APP_ID
 import com.example.openweatherapp.domain.location.LocationTracker
 import com.example.openweatherapp.domain.repository.WeatherRepository
 import com.example.openweatherapp.domain.util.Resource
+import com.example.openweatherapp.presentation.state.CurrentWeatherState
+import com.example.openweatherapp.presentation.state.WeatherState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

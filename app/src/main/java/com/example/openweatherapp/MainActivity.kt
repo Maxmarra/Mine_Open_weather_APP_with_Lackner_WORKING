@@ -18,7 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.openweatherapp.presentation.WeatherCard
 import com.example.openweatherapp.presentation.WeatherForecast
-import com.example.openweatherapp.presentation.WeatherViewModel
+import com.example.openweatherapp.presentation.viewmodel.WeatherViewModel
 import com.example.openweatherapp.presentation.ui.theme.DarkBlue
 import com.example.openweatherapp.presentation.ui.theme.DeepBlue
 import com.example.openweatherapp.presentation.ui.theme.OpenWeatherAppTheme

@@ -23,7 +23,7 @@ fun WeatherDataDisplay(
     unit: String,
     @DrawableRes iconId: Int,
     modifier: Modifier = Modifier,
-    iconTint: Color = MaterialTheme.colors.onPrimary,
+    iconTint: Color = MaterialTheme.colors.secondary,
 
 ) {
     Row(
