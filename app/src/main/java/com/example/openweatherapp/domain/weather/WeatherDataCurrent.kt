@@ -2,14 +2,14 @@ package com.example.openweatherapp.domain.weather
 
 data class WeatherDataCurrent(
 
-    val lon: Double,
-    val lat: Double,
+    //val lon: Double,
+    //val lat: Double,
 
-    val visibility: Int,
+    //val visibility: Int,
 
     //val type: WeatherType,
 
-    val weatherDescGroup: String,
+    //val weatherDescGroup: String,
     val weatherDescriptionCurrent: String,
     val weatherIcon: String,
 
@@ -26,7 +26,7 @@ data class WeatherDataCurrent(
     val sunrise: Long,
     val sunset: Long,
 
-    val cityId: Long,
+    //val cityId: Long,
     val cityName: String,
 
 

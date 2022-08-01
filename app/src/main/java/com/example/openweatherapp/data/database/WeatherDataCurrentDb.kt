@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.openweatherapp.domain.weather.WeatherDataCurrent
 
-@Entity
+@Entity (tableName = "current")
 data class WeatherDataCurrentDb(
     @PrimaryKey
     val dateTimeUnixDb: Long,
@@ -22,11 +22,11 @@ data class WeatherDataCurrentDb(
     val cityNameDb: String,
 )
 
-fun WeatherDataCurrentDb.asDomainModel() : WeatherDataCurrent{
+fun WeatherDataCurrentDb.asWeatherDataCurrent(): WeatherDataCurrent {
 
     return WeatherDataCurrent(
-            dateTimeUnix = dateTimeUnixDb,
-            weatherDescriptionCurrent = weatherDescriptionCurrentDb,
+        dateTimeUnix = dateTimeUnixDb,
+        weatherDescriptionCurrent = weatherDescriptionCurrentDb,
         weatherIcon = weatherIconDb,
         temperatureCurrent = temperatureCurrentDb,
         feelsLike = feelsLikeDb,
@@ -37,7 +37,6 @@ fun WeatherDataCurrentDb.asDomainModel() : WeatherDataCurrent{
         sunset = sunsetDb,
         sunrise = sunriseDb,
         cityName = cityNameDb
-
-        )
+    )
 
 }

@@ -1,5 +1,6 @@
 package com.example.openweatherapp.data.mappers
 
+import com.example.openweatherapp.data.database.WeatherDataCurrentDb
 import com.example.openweatherapp.data.remote.Container
 import com.example.openweatherapp.data.remote.ContainerCurrentWeather
 import com.example.openweatherapp.domain.weather.WeatherData
@@ -7,6 +8,71 @@ import com.example.openweatherapp.domain.weather.WeatherDataCurrent
 import com.example.openweatherapp.domain.weather.WeatherType
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+
+
+fun ContainerCurrentWeather.toWeatherDataCurrent(): WeatherDataCurrent{
+
+    return WeatherDataCurrent(
+        //lon = coord.lon,
+        //lat = coord.lat,
+        //visibility = visibility,
+        //type = WeatherType.fromWMO(weather[0].id),
+        //weatherDescGroup = weather[0].main,
+
+        weatherDescriptionCurrent = weather[0].description,
+        weatherIcon = weather[0].icon,
+
+        temperatureCurrent = main.temp.toInt(),
+        feelsLike = main.feels_like.toInt(),
+        pressure = main.pressure,
+        humidity = main.humidity,
+
+        windSpeed = wind.speed.toInt(),
+
+        dateTimeUnix = dt,
+
+        country = sys.country,
+        sunrise = sys.sunrise,
+        sunset = sys.sunset,
+
+        //cityId = id,
+        cityName = name,
+
+
+        )
+
+}
+
+fun ContainerCurrentWeather.toWeatherDataCurrentDb(): WeatherDataCurrentDb {
+
+    return WeatherDataCurrentDb(
+        //lon = coord.lon,
+        //lat = coord.lat,
+        //visibility = visibility,
+        //type = WeatherType.fromWMO(weather[0].id),
+        //weatherDescGroup = weather[0].main,
+
+        weatherDescriptionCurrentDb = weather[0].description,
+        weatherIconDb = weather[0].icon,
+
+        temperatureCurrentDb = main.temp.toInt(),
+        feelsLikeDb = main.feels_like.toInt(),
+        pressureDb = main.pressure,
+        humidityDb = main.humidity,
+
+        windSpeedDb = wind.speed.toInt(),
+
+        dateTimeUnixDb = dt,
+
+        countryDb = sys.country,
+        sunriseDb = sys.sunrise,
+        sunsetDb = sys.sunset,
+
+        //cityId = id,
+        cityNameDb = name,
+        )
+
+}
 
 fun Container.toWeatherData(): List<WeatherData>{
 
@@ -25,37 +91,21 @@ fun Container.toWeatherData(): List<WeatherData>{
     }
 }
 
-fun ContainerCurrentWeather.toWeatherDataCurrent(): WeatherDataCurrent{
-
-    return WeatherDataCurrent(
-        lon = coord.lon,
-        lat = coord.lat,
-
-        visibility = visibility,
-
-        //type = WeatherType.fromWMO(weather[0].id),
-
-        weatherDescGroup = weather[0].main,
-        weatherDescriptionCurrent = weather[0].description,
-        weatherIcon = weather[0].icon,
-
-        temperatureCurrent = main.temp.toInt(),
-        feelsLike = main.feels_like.toInt(),
-        pressure = main.pressure,
-        humidity = main.humidity,
-
-        windSpeed = wind.speed.toInt(),
-
-        dateTimeUnix = dt,
-
-        country = sys.country,
-        sunrise = sys.sunrise,
-        sunset = sys.sunset,
-
-        cityId = id,
-        cityName = name,
 
 
-    )
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

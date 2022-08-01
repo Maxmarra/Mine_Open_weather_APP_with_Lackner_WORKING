@@ -1,5 +1,7 @@
 package com.example.openweatherapp.data.repository
 
+import com.example.openweatherapp.data.database.WeatherDataCurrentDb
+import com.example.openweatherapp.data.database.WeatherDatabase
 import com.example.openweatherapp.data.mappers.toWeatherData
 import com.example.openweatherapp.data.mappers.toWeatherDataCurrent
 import com.example.openweatherapp.data.remote.WeatherApi
@@ -10,7 +12,8 @@ import com.example.openweatherapp.domain.weather.WeatherDataCurrent
 import javax.inject.Inject
 
 class WeatherRepositoryImpl @Inject constructor(
-    private val api: WeatherApi
+    private val api: WeatherApi,
+    private val database: WeatherDatabase
 ): WeatherRepository {
 
     override suspend fun getWeatherForecast(
@@ -33,11 +36,8 @@ class WeatherRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getCurrentWeather(
-        lat: Double,
-        long: Double,
-        appId: String
-    ): Resource<WeatherDataCurrent> {
+    override suspend fun getCurrentWeather(lat: Double,long: Double,appId: String)
+    : Resource<WeatherDataCurrent> {
 
         return try {
             Resource.Success(
@@ -46,7 +46,9 @@ class WeatherRepositoryImpl @Inject constructor(
                     long = long,
                     appId = appId
                 ).toWeatherDataCurrent()
+
             )
+          database.currentWeatherDao.insertCurrentWeather(data)
         } catch(e: Exception) {
             e.printStackTrace()
             Resource.Error(e.message ?: "An unknown error occurred.")

@@ -1,6 +1,11 @@
 package com.example.openweatherapp.di
 
 import android.app.Application
+import androidx.room.Room
+import com.example.openweatherapp.data.database.CurrentWeatherRoomRepo
+import com.example.openweatherapp.data.database.CurrentWeatherRoomRepoImpl
+import com.example.openweatherapp.data.database.WeatherDataCurrentDb
+import com.example.openweatherapp.data.database.WeatherDatabase
 import com.example.openweatherapp.data.remote.WeatherApi
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -32,5 +37,21 @@ object AppModule {
     fun provideFusedLocationProviderClient(app: Application)
     : FusedLocationProviderClient {
         return LocationServices.getFusedLocationProviderClient(app)
+    }
+
+    @Provides
+    @Singleton
+    fun provideWeatherDatabase(app: Application): WeatherDatabase {
+        return Room.databaseBuilder(
+            app,
+            WeatherDatabase::class.java,
+            "weather"
+        ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideCurrentWeatherRepository(db: WeatherDatabase): CurrentWeatherRoomRepo {
+        return CurrentWeatherRoomRepoImpl(db.currentWeatherDao)
     }
 }
