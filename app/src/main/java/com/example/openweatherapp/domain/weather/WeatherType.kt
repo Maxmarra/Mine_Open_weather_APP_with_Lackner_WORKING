@@ -3,10 +3,8 @@ package com.example.openweatherapp.domain.weather
 import androidx.annotation.DrawableRes
 import com.example.openweatherapp.R
 
-sealed class WeatherType(
-    val weatherDesc: String,
-    @DrawableRes val iconRes: Int
-) {
+sealed class WeatherType(val weatherDesc: String, @DrawableRes val iconRes: Int) {
+
     object ClearSky : WeatherType(
         weatherDesc = "Clear sky",
         iconRes = R.drawable.ic_sunny
@@ -119,9 +117,9 @@ sealed class WeatherType(
     companion object {
         fun fromWMO(code: Int): WeatherType {
             return when(code) {
-                800 -> ClearSky
+                0 -> ClearSky
                 1 -> MainlyClear
-                in 801..804 -> PartlyCloudy
+                2 -> PartlyCloudy
                 3 -> Overcast
                 45 -> Foggy
                 48 -> DepositingRimeFog
