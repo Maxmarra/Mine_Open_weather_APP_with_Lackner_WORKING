@@ -12,4 +12,5 @@ data class WeatherData (
     val iconF: String,
     val speedF: Int,
     val dateTimeUnixF: Long,
+    val dateText: LocalDateTime
 )

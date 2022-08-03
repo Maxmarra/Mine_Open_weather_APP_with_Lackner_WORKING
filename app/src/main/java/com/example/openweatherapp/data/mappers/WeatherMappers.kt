@@ -7,23 +7,7 @@ import com.example.openweatherapp.domain.weather.WeatherDataCurrent
 import com.example.openweatherapp.domain.weather.WeatherType
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-
-fun Container.toWeatherData(): List<WeatherData>{
-
-    return list.map{
-
-        WeatherData(
-
-            temperatureF = it.main.temp.toInt(),
-            humidityF = it.main.humidity,
-            descriptionF = it.weather[0].description,
-            iconF = it.weather[0].icon,
-            speedF = it.wind.speed.toInt(),
-            dateTimeUnixF = it.dt
-
-        )
-    }
-}
+import java.util.*
 
 fun ContainerCurrentWeather.toWeatherDataCurrent(): WeatherDataCurrent{
 
@@ -56,6 +40,32 @@ fun ContainerCurrentWeather.toWeatherDataCurrent(): WeatherDataCurrent{
         cityName = name,
 
 
-    )
+        )
 
 }
+
+fun Container.toWeatherData(): List<WeatherData>{
+
+    return list.map{
+
+        val pattern = "yyyy-MM-dd HH:mm:ss"
+        val formatter = DateTimeFormatter.ofPattern(pattern, Locale.getDefault())
+        val localDateTime = LocalDateTime.parse(it.dt_txt, formatter)
+
+        WeatherData(
+
+            temperatureF = it.main.temp.toInt(),
+            humidityF = it.main.humidity,
+            descriptionF = it.weather[0].description,
+            iconF = it.weather[0].icon,
+            speedF = it.wind.speed.toInt(),
+            // первый вариант получения даты из миллисекунд 1647345600
+            dateTimeUnixF = it.dt,
+            //специально второй вариант получения даты из "2022-03-15 12:00:00"
+            dateText = localDateTime
+
+
+        )
+    }
+}
+

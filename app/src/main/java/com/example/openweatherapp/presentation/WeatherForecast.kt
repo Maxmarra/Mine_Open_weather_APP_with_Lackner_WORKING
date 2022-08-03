@@ -7,7 +7,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.openweatherapp.presentation.state.WeatherState
@@ -33,7 +32,7 @@ fun WeatherForecast(
             Spacer(modifier = Modifier.height(16.dp))
             LazyRow(content = {
                 items(data){
-                    DailyWeatherDisplay(
+                    WeatherForecastItem(
                         weatherData = it,
                         modifier = Modifier
                         .height(150.dp)

@@ -155,18 +155,18 @@ fun WeatherCard(
                         horizontalArrangement = Arrangement.SpaceAround
                     ) {
 
-                        WeatherDataDisplay(
+                        WeatherCardBottomPart(
                             value = it.pressure,
                             unit = " гПа",
                             iconId = R.drawable.ic_pressure
                         )
-                        WeatherDataDisplay(
+                        WeatherCardBottomPart(
                             value = it.humidity,
                             unit = " %",
                             iconId = R.drawable.ic_drop,
 
                             )
-                        WeatherDataDisplay(
+                        WeatherCardBottomPart(
                             value = it.windSpeed,
                             unit = " км/ч",
                             iconId = R.drawable.ic_wind

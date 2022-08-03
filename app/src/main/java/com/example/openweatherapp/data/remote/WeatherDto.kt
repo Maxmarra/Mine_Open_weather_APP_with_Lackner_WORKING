@@ -6,15 +6,19 @@ data class DataList(
     val main: Main,
     val weather: List<Weather>,
     val wind: Wind,
-    //val dt_txt: String
-    )
+    val dt_txt: String
+)
 
 data class Main(val temp: Double, val humidity: Int)
 data class Weather(val description: String, val icon: String,)
 data class Wind(val speed: Double)
 
+
+//"2022-03-15 12:00:00"
 val json = """ 
 
+
+},
 class Container -> {
                                  "cod": "200",
                                  "message": 0,

@@ -22,7 +22,7 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 @Composable
-fun DailyWeatherDisplay(
+fun WeatherForecastItem(
     weatherData: WeatherData,
     modifier: Modifier = Modifier,
 ) {
@@ -49,6 +49,7 @@ fun DailyWeatherDisplay(
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
+            //text = weatherData.dateText.toLocalDate().toString(),
             text = formattedTime,
             color = MaterialTheme.colors.onPrimary,
             style = MaterialTheme.typography.body2
