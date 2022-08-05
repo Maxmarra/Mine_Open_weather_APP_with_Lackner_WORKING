@@ -37,7 +37,7 @@ class Container -> {
                                         "humidity": 62,
                                         "temp_kf": 0.14
                                     },
-        class Weather ->           "weather": [
+        class List<Weather> ->      "weather": [
                                         {
                                         "id": 804,
                                         "main": "Clouds",
